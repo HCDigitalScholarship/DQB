@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.views.generic.base import TemplateView
+from django.http import HttpResponse
+from django.template import RequestContext, loader
+from django.shortcuts import render, render_to_response
+from models import Person
 
-# Create your views here.
+def home(request):
+	return render(request, 'home.html')
