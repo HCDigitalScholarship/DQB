@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Dictionary of Quaker Biography</title>
+	</head>
+	<body>
+		<ul>
+		We could put a list here of all of the
+		 profiles with links to their page.
+		 {% for i in index %}
+    		<li><a href="{{ i }}">Click here</a></li>
+		{% endfor %}
+		</ul>
+	</body>
+</html>

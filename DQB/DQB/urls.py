@@ -18,5 +18,21 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', 'dqb_app.views.home')
+    url(r'^$', 'dqb_app.views.home'),
+    url(r'^profile/(?P<person_id>[0-9]+)/$', 'dqb_app.views.profile', name='profile'),
+    url(r'^profile/$', 'dqb_app.views.profile_index', name='profile_index'),
 ]
+
+
+"""
+urlpatterns = [
+    # ex: /polls/
+    url(r'^$', views.index, name='index'),
+    # ex: /polls/5/
+    url(r'^(?P<question_id>[0-9]+)/$', views.detail, name='detail'),
+    # ex: /polls/5/results/
+    url(r'^(?P<question_id>[0-9]+)/results/$', views.results, name='results'),
+    # ex: /polls/5/vote/
+    url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
+]
+"""
