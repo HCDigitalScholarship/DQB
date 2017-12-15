@@ -2,15 +2,28 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
+		{% include 'top-links.html' %}
 		<title>Dictionary of Quaker Biography</title>
 	</head>
 	<body>
-		<ul>
-		We could put a list here of all of the
-		 profiles with links to their page.
-		 {% for i in index %}
-    		<li><a href="{{ i }}">Click here</a></li>
-		{% endfor %}
-		</ul>
+		<header>
+			{% include 'header.html' %}
+    	</header>
+    	
+    	<div id = "main-content">
+
+          
+            <div type= "list" class = "row"> 
+               <h2 class = "text-center">Index</h2>
+                	<ul>
+					We could put a list here of all of the
+		 			profiles with links to their page.
+		 			{% for i in index %}
+    					<li><a href="{{ i }}">Page for person {{ i }}</a></li>
+					{% endfor %}
+					</ul>
+              </div>
+            </div>
+    	{% include 'footer.html' %}
 	</body>
 </html>

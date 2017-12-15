@@ -2,11 +2,30 @@
 <!DOCTYPE HTML>
 <html lang="en">
 	<head>
+		{% include 'top-links.html' %}
 		<title>Dictionary of Quaker Biography</title>
 	</head>
 	<body>
-		Here's a profile of a person. <br>
-		{{ person_id }}
+		<header>
+			{% include 'header.html' %}
+    	</header>
+    	
+    	<div id = "main-content">
+
+          
+            <div type= "form" class = "row"> 
+               <h2 class = "text-center">Please fill out this form</h2>
+                		Here's a profile of a person. <br>
+						{{ person_id }}
+						<form action="/profile/{{ person_id }}/" method="post">
+							{% csrf_token %}
+							{{ form }}
+							<input type="submit" value="Submit" />
+						</form>
+              </div>
+            </div>
+    	
+		{% include 'footer.html' %}
 	</body>
 </html>
 	
