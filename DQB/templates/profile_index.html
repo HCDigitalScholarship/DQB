@@ -16,9 +16,14 @@
             <div type= "list" class = "row"> 
                <h2 class = "text-center">Index</h2>
                 	<ul>
-					We could put a list here of all of the
-		 			profiles with links to their page.
+					Profiles to be revised:
 		 			{% for i in index %}
+    					<li><a href="{{ i }}">Page for person {{ i }}</a></li>
+					{% endfor %}
+					</ul>
+					<ul>
+					Completed Person Profiles:
+		 			{% for i in people %}
     					<li><a href="{{ i }}">Page for person {{ i }}</a></li>
 					{% endfor %}
 					</ul>

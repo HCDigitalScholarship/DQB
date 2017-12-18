@@ -14,7 +14,8 @@ class Person(models.Model):
 	locations = models.ManyToManyField("Location", blank = True)
 	#references = models.TextField("References", blank = True)
 	references = models.ManyToManyField("Reference", blank = True)
-	textfile = models.ForeignKey("Text", blank = True, null = True)
+	text = models.TextField("Text", blank = True, null = True)
+	filename = models.CharField("File Name", max_length=100, blank = True)
 	#will want to include file and updated text
 	
 	def __unicode__(self):

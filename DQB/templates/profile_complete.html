@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		{% include 'top-links.html' %}
+		<title>Dictionary of Quaker Biography</title>
+	</head>
+	<body>
+		<header>
+			{% include 'header.html' %}
+    	</header>
+    	
+    	<div id = "main-content">
+            <div> 
+            	Profile of {{ person.first_name }} {{ person.last_name }}
+            	<ul>
+            		<li>Born: {{ person.birth_date }}</li>
+            		<li>Died: {{ person.death_date }}</li>
+            		<li>Married: {{ person.marriage_date }}</li>
+            		<li>Locations: {{ person.locations }}</li>
+            		<li>References: {{ person.references }}</li>
+            		<li>Text: {{ person.text }}</li>
+            		<li>File Name: {{person.filename}} </li>
+            	</ul>
+            </div>
+        </div>
+    	
+		{% include 'footer.html' %}
+	</body>
+</html>

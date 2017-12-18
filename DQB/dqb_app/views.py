@@ -15,27 +15,33 @@ def home(request):
 	return render(request, 'home.html')
 	
 def profile(request, person_id):
-	#document = collection.find_one({'file' : 'DQB_ECCLES-EDRIDGE_Page_080.jpg.jpg'})
-	#context = {'person_id': person_id, 'document': document}
-	### from django docs:
-	if request.method == 'POST':
-		form = PersonForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return render(request, 'home.html')
-	else:	
-		form = PersonForm()
-	context = {'person_id':person_id, 'form':form}
-	return render(request, 'profile.html', context)
+	people = Person.objects.values_list('id', flat=True)
+	if int(person_id) in people:
+		person = Person.objects.get(id=person_id)
+		context = {'person':person}
+		return render(request, 'profile_complete.html', context)
+	else:
+		if request.method == 'POST':
+			form = PersonForm(request.POST)
+			if form.is_valid():
+				form.save()
+				return render(request, 'home.html')
+		else:	
+			form = PersonForm()
+		context = {'person_id':person_id, 'form':form}
+		return render(request, 'profile.html', context)
 	
 	
 	
 def profile_index(request):
+	people = Person.objects.values_list('id', flat=True)
 	index = []
-	for i in range(0, 10):
-		index.append(i)
-	context = {'index':index}
+	for i in range(0, 10): #would actually want to get this from the mongodb database
+		if i not in people:
+			index.append(i)
+	context = {'index':index, 'people':people}
 	return render(request, 'profile_index.html', context)
+	
 	
 
 	
