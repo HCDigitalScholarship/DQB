@@ -16,10 +16,12 @@ class Person(models.Model):
 	references = models.ManyToManyField("Reference", blank = True)
 	text = models.TextField("Text", blank = True, null = True)
 	filename = models.CharField("File Name", max_length=100, blank = True)
-	#will want to include file and updated text
+	#mother = models.ForeignKey("Person", related_name ="mother", blank = True, null = True)
+	#father = models.ForeignKey("Person", related_name = "father", blank = True, null = True)
+	children = models.ManyToManyField('self', blank = True)
 	
 	def __unicode__(self):
-		return str(self.id) + " " + self.last_name # etc.
+		return self.first_name + " " + self.last_name
 		
 class Text(models.Model):
 	filename = models.CharField("Image File", max_length = 100)

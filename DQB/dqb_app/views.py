@@ -25,7 +25,9 @@ def profile(request, person_id):
 			form = PersonForm(request.POST)
 			if form.is_valid():
 				form.save()
-				return render(request, 'home.html')
+				person = Person.objects.get(id=person_id)
+				context = {'person':person}
+				return render(request, 'profile_complete.html', context)
 		else:	
 			form = PersonForm()
 		context = {'person_id':person_id, 'form':form}
