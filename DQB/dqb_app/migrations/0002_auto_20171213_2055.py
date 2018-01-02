@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
@@ -72,7 +73,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='person',
             name='textfile',
-            field=models.ForeignKey(blank=True, to='dqb_app.Text', null=True),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, blank=True, to='dqb_app.Text', null=True),
         ),
         migrations.AddField(
             model_name='person',

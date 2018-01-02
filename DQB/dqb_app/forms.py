@@ -2,7 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from django.db import models
 from dqb_app.models import *
-from models import Person
+from .models import Person
 
 class PersonForm(ModelForm):
 	class Meta:
