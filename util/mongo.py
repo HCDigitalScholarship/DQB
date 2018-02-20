@@ -20,12 +20,12 @@ def search(key,term):
 	print(result)	
 	return result
 
-result = get('file','DQB_ECCLES-EDRIDGE_Page_080.jpg.jpg')
-print(result['data']['responses']['textAnnotations'])
+#result = get('file','DQB_ECCLES-EDRIDGE_Page_080.jpg.jpg')
+#print(result['data']['responses']['textAnnotations'])
 
 #full text
 #print(result['data']['responses'][0]['textAnnotations'][0]['description'])
-print(result['data']['responses'][0]['fullTextAnnotation']['text'])
+#print(result['data']['responses'][0]['fullTextAnnotation']['text'])
 
 #all word results
 for text in result['data']['responses'][0]['textAnnotations']:
